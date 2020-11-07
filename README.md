@@ -19,6 +19,22 @@ The api exposes a few simple endspoints. See below.
 
     Will return specific object within $request object. Dig deeper by doing /api/myobject/deeperobject.
 
+# Getting Started
+
+# Prerequisites
+
+* [Powershell](https://github.com/powershell/powershell)
+
+## Usage
+
+For usage examples, see docker-compose.yml.
+
+## Development
+
+1. Clone the repository
+2. Run `docker-compose up -d --build`
+3. The site should now run on http://localhost:5000
+
 ## Example
 
 The below assumes you've used the docker-compose file to set it up
@@ -38,19 +54,23 @@ Invoke-WebRequest -Uri "$uri/api/RawRequest"
 Invoke-WebRequest -Uri "$uri/api/RawRequest/RawUrl"
 ```
 
-## Usage
+# Troubleshooting / Questions
 
-For usage examples, see docker-compose.yml.
+* **GitHub Issues:** Submit a bug / new feature idea / or just a question as a new GitHub issue
 
-## Development
-
-1. Clone the repository
-2. Run `docker-compose up -d --build`
-3. The site should now run on http://localhost:5000
-
-## TODO
+# RoadMap
 
 * Decouple Internal functions and create pester unittests
 * Create basic pester integrationtests.
 * Upload to docker hub
+* Add .editorconfig & possible .vscode conventions
 * Add CICD pipeline
+* Set up in an azure functions app
+
+# License
+
+PSIP is licensed under the MIT License.
+
+# Maintainer(s)
+
+* [Jonathan Østrup](https://github.com/TechnicallyJoe)
