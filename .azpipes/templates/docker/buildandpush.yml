@@ -33,7 +33,7 @@ steps:
       containerRegistry: ${{ parameters.containerRegistry }}
       repository: ${{ parameters.imageName }}
       command: build
-      Dockerfile: ${{ parameters.workingDirectory }}/Dockerfile
+      Dockerfile: ${{ parameters.workingDirectory }}/dockerfile
       tags: ${{ parameters.imageTags }}
       addPipelineData: false
 #  - task: Docker@2
