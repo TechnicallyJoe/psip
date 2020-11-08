@@ -1,0 +1,29 @@
+parameters:
+  - name: workingDirectory
+
+  - name: codeCoverageOutputFile
+    default: cc-pester.xml
+
+  - name: resultsFile
+    default: test-pester.xml
+
+steps:
+  - task: Pester.PesterRunner.Pester-Task.Pester@10
+    displayName: Run pester tests
+    inputs:
+      scriptFolder: ${{ parameters.workingDirectory }}/*
+      CodeCoverageOutputFile: ${{ parameters.workingDirectory }}/${{ parameters.codeCoverageOutputFile }}
+      resultsFile: ${{ parameters.workingDirectory }}/${{ parameters.resultsFile }}
+      usePSCore: true
+
+  - task: PublishTestResults@2
+    displayName: Publish Test Results **/${{ parameters.resultsFile }}
+    inputs:
+      testResultsFiles: "**/${{ parameters.resultsFile }}"
+      searchFolder: ${{ parameters.workingDirectory }}
+      testRunTitle: powershell pester tests
+
+  - task: PublishCodeCoverageResults@1
+    displayName: "Publish code coverage from ${{ parameters.workingDirectory }}/${{ parameters.codeCoverageOutputFile }}"
+    inputs:
+      summaryFileLocation: "${{ parameters.workingDirectory }}/${{ parameters.codeCoverageOutputFile }}"

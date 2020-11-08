@@ -1,0 +1,42 @@
+trigger:
+  branches:
+    include:
+      - "*"
+
+variables:
+  - template: ../variables/common.vars.yml
+
+stages:
+  - stage: continuousIntegration
+    displayName: ci
+    dependsOn: continuousBuild
+    jobs:
+      - job: Test
+        displayName: Test
+        pool:
+          vmImage: $(vmImage)
+        steps:
+          - template: ../templates/powershell/test.yml
+            parameters:
+              workingDirectory: $(System.DefaultWorkingDirectory)
+#  - stage: continuousDeliveryDockerHub
+#    displayName: Upload to Docker Hub
+#    dependsOn: continuousIntegration
+#    jobs:
+#      - job: build
+#        displayName: Build
+#        pool:
+#          vmImage: $(vmImage)
+#        steps:
+#          - script: "echo Building!"
+#
+#  - stage: continuousDeliveryDeploy
+#    displayName: Deploy
+#    dependsOn: continuousDeliveryDockerHub
+#    jobs:
+#      - job: build
+#        displayName: Build
+#        pool:
+#          vmImage: $(vmImage)
+#        steps:
+#          - script: "echo Building!"
