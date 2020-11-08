@@ -1,0 +1,45 @@
+parameters:
+  - name: workingDirectory
+    type: string
+
+  - name: imageName
+    type: string
+
+  - name: imageTags
+    type: string
+
+  - name: dockerVersion
+    type: string
+
+  - name: containerRegistry
+    type: string
+
+steps:
+  - task: DockerInstaller@0
+    displayName: Install Docker - ${{ parameters.dockerVersion }}
+    inputs:
+      dockerVersion: ${{ parameters.dockerVersion }}
+
+  - task: Docker@2
+    displayName: Login to cr - ${{ parameters.containerRegistry }}
+    inputs:
+      containerRegistry: ${{ parameters.containerRegistry }}
+      command: login
+      addPipelineData: false
+
+  - task: Docker@2
+    displayName: Building ${{ parameters.imageName }}
+    inputs:
+      containerRegistry: ${{ parameters.containerRegistry }}
+      repository: ${{ parameters.imageName }}
+      command: build
+      Dockerfile: ${{ parameters.workingDirectory }}/Dockerfile
+      tags: ${{ parameters.imageTags }}
+      addPipelineData: false
+#  - task: Docker@2
+#    displayName: Pushing ${{ parameters.imageName }} to ${{ parameters.containerRegistry }}
+#    inputs:
+#      containerRegistry: ${{ parameters.containerRegistry }}
+#      repository: ${{ parameters.imageName }}
+#      command: push
+#      addPipelineData: false

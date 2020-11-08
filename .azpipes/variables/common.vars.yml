@@ -1,3 +1,16 @@
 variables:
+  - name: version
+    value: 0.0.3
+
+  - name: imageName
+    value: psip
+
   - name: vmImage
     value: ubuntu-18.04
+
+  - name: dockerVersion
+    value: 17.09.0-ce
+
+  # Should point to a service connection created in Azure DevOps
+  - name: containerRegistry
+    value: docker.pkg.github.com/technicallyjoe/psip
