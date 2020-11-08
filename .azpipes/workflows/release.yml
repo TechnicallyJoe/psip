@@ -9,7 +9,6 @@ variables:
 stages:
   - stage: continuousIntegration
     displayName: ci
-    dependsOn: continuousBuild
     jobs:
       - job: Test
         displayName: Test
