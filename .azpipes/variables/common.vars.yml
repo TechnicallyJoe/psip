@@ -1,3 +1,3 @@
 variables:
   - name: vmImage
-    value: ubuntu-20.04
+    value: ubuntu-18.04
