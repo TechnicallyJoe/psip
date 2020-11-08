@@ -1,5 +1,7 @@
 # psip
 
+[![Build Status](https://dev.azure.com/TechnicallyJoe/psip/_apis/build/status/TechnicallyJoe.psip?branchName=master)](https://dev.azure.com/TechnicallyJoe/psip/_build/latest?definitionId=16&branchName=master)
+
 A mostly for fun project, demonstrating using the [Microsoft Polaris](https://github.com/powershell/polaris) project to create a simple web api.
 
 ## Disclaimer
