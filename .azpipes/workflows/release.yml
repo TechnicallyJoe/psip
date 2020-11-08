@@ -22,7 +22,7 @@ stages:
   - stage: buildandpushtocrdevelop
     displayName: Upload container to Container Registry
     dependsOn: continuousIntegration
-    conditionn: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'), ne(variables['Build.Reason'], 'PullRequest'))
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'), ne(variables['Build.Reason'], 'PullRequest'))
     jobs:
       - job: githubcr
         displayName: github cr
@@ -42,7 +42,7 @@ stages:
   - stage: buildandpushtocrmaster
     displayName: Upload container to Container Registry
     dependsOn: continuousIntegration
-    conditionn: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'), ne(variables['Build.Reason'], 'PullRequest'))
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'), ne(variables['Build.Reason'], 'PullRequest'))
     jobs:
       - job: githubcr
         displayName: github cr
