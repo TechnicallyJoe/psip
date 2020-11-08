@@ -47,4 +47,5 @@ steps:
       containerRegistry: ${{ parameters.containerRegistry }}
       repository: ${{ parameters.imageName }}
       command: push
+      tags: ${{ parameters.imageTags }}
       addPipelineData: ${{ parameters.addPipelineData }}
