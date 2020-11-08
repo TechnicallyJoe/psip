@@ -6,6 +6,6 @@ SHELL ["pwsh", "-Command"]
 
 RUN Install-Module -Name Polaris -Force
 
-COPY api.ps1 api.ps1
+COPY src src
 
-CMD ["sh", "-c", "pwsh -File api.ps1 -Port ${PORT}"]
+CMD ["sh", "-c", "pwsh -File src/entrypoint.ps1 -Port ${PORT}"]
