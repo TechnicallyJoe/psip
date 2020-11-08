@@ -62,7 +62,6 @@ Invoke-WebRequest -Uri "$uri/api/RawRequest/RawUrl"
 
 # RoadMap
 
-* Decouple Internal functions and create pester unittests
 * Create basic pester integrationtests.
 * Upload to docker hub
 * Add .editorconfig & possible .vscode conventions
