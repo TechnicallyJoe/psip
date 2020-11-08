@@ -14,6 +14,10 @@ parameters:
   - name: containerRegistry
     type: string
 
+  - name: addPipelineData
+    type: boolean
+    default: false
+
 steps:
   - task: DockerInstaller@0
     displayName: Install Docker - ${{ parameters.dockerVersion }}
@@ -25,7 +29,7 @@ steps:
     inputs:
       containerRegistry: ${{ parameters.containerRegistry }}
       command: login
-      addPipelineData: false
+      addPipelineData: ${{ parameters.addPipelineData }}
 
   - task: Docker@2
     displayName: Building ${{ parameters.imageName }}
@@ -35,11 +39,12 @@ steps:
       command: build
       Dockerfile: ${{ parameters.workingDirectory }}/dockerfile
       tags: ${{ parameters.imageTags }}
-      addPipelineData: false
-#  - task: Docker@2
-#    displayName: Pushing ${{ parameters.imageName }} to ${{ parameters.containerRegistry }}
-#    inputs:
-#      containerRegistry: ${{ parameters.containerRegistry }}
-#      repository: ${{ parameters.imageName }}
-#      command: push
-#      addPipelineData: false
+      addPipelineData: ${{ parameters.addPipelineData }}
+
+  - task: Docker@2
+    displayName: Pushing ${{ parameters.imageName }} to ${{ parameters.containerRegistry }}
+    inputs:
+      containerRegistry: ${{ parameters.containerRegistry }}
+      repository: ${{ parameters.imageName }}
+      command: push
+      addPipelineData: ${{ parameters.addPipelineData }}

@@ -35,6 +35,7 @@ stages:
               imageName: ${{ variables.imageName }}
               dockerVersion: ${{ variables.dockerVersion }}
               containerRegistry: ${{ variables.containerRegistry }}
+              addPipelineData: true
               imageTags: |
                 develop
                 ${{ variables.version}}-develop
