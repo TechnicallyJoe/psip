@@ -2,8 +2,9 @@ variables:
   - name: version
     value: 0.0.3
 
+  # Should be: <Organisation>/<Repository>/<ImageName>
   - name: imageName
-    value: psip
+    value: technicallyjoe/psip/psip
 
   - name: vmImage
     value: ubuntu-18.04
