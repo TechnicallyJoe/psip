@@ -1,10 +1,13 @@
 parameters:
   - name: workingDirectory
+    type: string
 
   - name: codeCoverageOutputFile
+    type: string
     default: cc-pester.xml
 
   - name: resultsFile
+    type: string
     default: test-pester.xml
 
 steps:
