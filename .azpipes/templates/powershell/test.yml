@@ -19,7 +19,8 @@ steps:
   - task: PublishTestResults@2
     displayName: Publish Test Results **/${{ parameters.resultsFile }}
     inputs:
-      testResultsFiles: "**/${{ parameters.resultsFile }}"
+      testResultsFormat: NUnit
+      testResultsFiles: ${{ parameters.resultsFile }}
       searchFolder: ${{ parameters.workingDirectory }}
       testRunTitle: powershell pester tests
 
