@@ -1,5 +1,5 @@
 BeforeAll {
-    . ../../src/lib/Get-DataFromUrl.ps1
+    . $PSScriptRoot/../../src/lib/Get-DataFromUrl.ps1
 }
 
 Describe "Get-DataFromUrl" {
