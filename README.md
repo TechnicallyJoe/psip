@@ -3,7 +3,6 @@
 [![Build Status](https://img.shields.io/azure-devops/build/technicallyjoe/psip/16/master)](https://dev.azure.com/TechnicallyJoe/psip/_build/latest?definitionId=16&branchName=master)
 [![CodeCoverage](https://img.shields.io/azure-devops/coverage/technicallyjoe/psip/16/develop)](https://dev.azure.com/technicallyjoe/psip/_build?definitionId=16)
 
-
 [![Docker](https://img.shields.io/docker/pulls/technicallyjoe/psip?label=Docker)](https://hub.docker.com/r/technicallyjoe/psip)
 
 A mostly for fun project, demonstrating using the [Microsoft Polaris](https://github.com/powershell/polaris) project to create a simple web api.
