@@ -2,9 +2,9 @@ variables:
   - name: version
     value: 0.0.3
 
-  # Should be: <Organisation>/<Repository>/<ImageName>
+  # Should be: <Repository>/<ImageName>
   - name: imageName
-    value: technicallyjoe/psip/psip
+    value: technicallyjoe/psip
 
   - name: vmImage
     value: ubuntu-18.04
@@ -14,4 +14,4 @@ variables:
 
   # Should point to a service connection created in Azure DevOps
   - name: containerRegistry
-    value: docker.pkg.github.com/technicallyjoe/psip
+    value: technicallyjoe/psip
