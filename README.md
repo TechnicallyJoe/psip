@@ -2,6 +2,7 @@
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/TechnicallyJoe/psip/master/LICENSE)
 [![Build Status](https://img.shields.io/azure-devops/build/technicallyjoe/psip/16/master)](https://dev.azure.com/TechnicallyJoe/psip/_build/latest?definitionId=16&branchName=master)
 [![CodeCoverage](https://img.shields.io/azure-devops/coverage/technicallyjoe/psip/16/develop)](https://dev.azure.com/technicallyjoe/psip/_build?definitionId=16)
+[![Version](https://img.shields.io/docker/v/technicallyjoe/psip)](https://github.com/TechnicallyJoe/psip)
 
 [![Docker](https://img.shields.io/docker/pulls/technicallyjoe/psip?label=Docker)](https://hub.docker.com/r/technicallyjoe/psip)
 
