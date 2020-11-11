@@ -2,6 +2,10 @@ trigger:
   branches:
     include:
       - "*"
+  paths:
+    exclude:
+      - LICENSE
+      - README.md
 
 variables:
   - template: ../variables/common.vars.yml
