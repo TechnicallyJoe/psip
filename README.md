@@ -9,9 +9,11 @@
 A mostly for fun project, demonstrating using the [Microsoft Polaris](https://github.com/powershell/polaris) project to create a simple web api.
 
 ## Disclaimer
+
 This project is only meant as a proof of concept and should not be used in production without a thorough review. This includes disclaimer includes any disclaimer given in the [Microsoft Polaris](https://github.com/powershell/polaris) project.
 
 ## Endpoints
+
 The api exposes a few simple endspoints. See below.
   * `/`
 
