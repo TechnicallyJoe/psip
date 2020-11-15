@@ -15,6 +15,13 @@ parameters:
     type: boolean
 
 steps:
+  - task: ArchiveFiles@2
+    displayName: Archiving release v${{ parameters.version }}
+    inputs:
+      rootFolderOrFile: ${{ parameters.workingDirectory }}
+      includeRootFolder: false
+      archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.Repository.Name).zip
+
   - task: GitHubRelease@1
     displayName: "Create GitHub release v${{ parameters.version }}"
     inputs:
@@ -24,4 +31,4 @@ steps:
       title: v${{ parameters.version }}
       isPreRelease: ${{ parameters.isPreRelease }}
       addChangeLog: ${{ parameters.addChangeLog }}
-      assets: ${{ parameters.workingDirectory }}
+      assets: $(Build.ArtifactStagingDirectory)/$(Build.Repository.Name).zip
