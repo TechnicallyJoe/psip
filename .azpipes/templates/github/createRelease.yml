@@ -1,0 +1,27 @@
+parameters:
+  - name: workingDirectory
+    type: string
+
+  - name: version
+    type: string
+
+  - name: githubConnection
+    type: string
+
+  - name: isPreRelease
+    type: boolean
+
+  - name: addChangeLog
+    type: boolean
+
+steps:
+  - task: GitHubRelease@1
+    displayName: "Create GitHub release v${{ parameters.version }}"
+    inputs:
+      gitHubConnection: ${{ parameters.githubConnection }}
+      tagSource: userSpecifiedTag
+      tag: v${{ parameters.version }}
+      title: v${{ parameters.version }}
+      isPreRelease: ${{ parameters.isPreRelease }}
+      addChangeLog: ${{ parameters.addChangeLog }}
+      assets: ${{ parameters.workingDirectory }}
