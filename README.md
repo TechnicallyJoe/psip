@@ -6,7 +6,7 @@
 
 [![Docker](https://img.shields.io/docker/pulls/technicallyjoe/psip?label=Docker)](https://hub.docker.com/r/technicallyjoe/psip)
 
-A mostly for fun project, demonstrating using the [Microsoft Polaris](https://github.com/powershell/polaris) project to create a simple web api.
+A mostly for fun project, demonstrating the use [Microsoft Polaris](https://github.com/powershell/polaris), [Azure Pipelines](https://dev.azure.com/TechnicallyJoe/psip/_build) and [Docker](https://hub.docker.com/r/technicallyjoe/psip) project to create a simple web api that returns the request with a focus on the ip address for no particular reason.
 
 ## Disclaimer
 
