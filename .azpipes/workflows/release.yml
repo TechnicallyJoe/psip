@@ -9,6 +9,7 @@ trigger:
 
 variables:
   - template: ../variables/common.vars.yml
+  - group: github_token_group
 
 stages:
   - stage: continuousIntegration
@@ -56,6 +57,7 @@ stages:
               githubConnection: ${{ variables.githubConnection }}
               isPreRelease: false
               addChangeLog: true
+              githubAccessToken: ${{ variables.githubAccessToken }}
 
   - stage: publishmasterassets
     displayName: Uploading new release to cr
@@ -90,3 +92,4 @@ stages:
               githubConnection: ${{ variables.githubConnection }}
               isPreRelease: false
               addChangeLog: true
+              githubAccessToken: ${{ variables.githubAccessToken }}

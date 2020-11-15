@@ -17,6 +17,9 @@ parameters:
   - name: addChangeLog
     type: boolean
 
+  - name: githubAccessToken
+    type: string
+
 steps:
   - task: ArchiveFiles@2
     displayName: Archiving release v${{ parameters.version }}
@@ -47,6 +50,8 @@ steps:
           Exit($LASTEXITCODE)
       }
     displayName: Detect if github Release is already present
+    env:
+      GITHUB_TOKEN: ${{ parameters.githubAccessToken }}
 
   - task: GitHubRelease@1
     displayName: "Create GitHub release v${{ parameters.version }}"
