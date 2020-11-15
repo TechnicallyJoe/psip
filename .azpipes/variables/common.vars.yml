@@ -17,4 +17,4 @@ variables:
     value: technicallyjoe/psip
 
   - name: githubConnection
-    value: gh-technicallyjoe/psip
+    value: gh/technicallyjoe/psip
