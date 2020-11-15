@@ -31,7 +31,8 @@ steps:
   - pwsh: |
       $repository = '${{ parameters.githubRepository }}'
       $version = 'v$${{ parameters.version }}'
-      $env:GITHUB_TOKEN = '${{ parameters.githubAccessToken }}'
+
+      gh auth login --with-token '${{ parameters.githubAccessToken }}'
 
       gh release view $version --repo $repository
 
