@@ -1,6 +1,6 @@
 variables:
   - name: version
-    value: 0.0.3
+    value: 0.0.4
 
   # Should be: <Repository>/<ImageName>
   - name: imageName
