@@ -43,6 +43,19 @@ stages:
               imageTags: |
                 develop
 
+      - job: ghrelease
+        displayName: github release
+        pool:
+          vmImage: $(vmImage)
+        steps:
+          - template: ../templates/github/createRelease.yml
+            parameters:
+              workingDirectory: $(System.DefaultWorkingDirectory)
+              version: ${{ variables.version }}-preview
+              githubConnection: gh-technicallyjoe/psip
+              isPreRelease: true
+              addChangeLog: false
+
   - stage: buildandpushtocrmaster
     displayName: Uploading new release to cr
     dependsOn: continuousIntegration
@@ -61,4 +74,17 @@ stages:
               containerRegistry: ${{ variables.containerRegistry }}
               imageTags: |
                 latest
-                ${{ variables.version}}
+                ${{ variables.version }}
+
+      - job: ghrelease
+        displayName: github release
+        pool:
+          vmImage: $(vmImage)
+        steps:
+          - template: ../templates/github/createRelease.yml
+            parameters:
+              workingDirectory: $(System.DefaultWorkingDirectory)
+              version: ${{ variables.version }}
+              githubConnection: gh-technicallyjoe/psip
+              isPreRelease: false
+              addChangeLog: true
