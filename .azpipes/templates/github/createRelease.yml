@@ -31,6 +31,7 @@ steps:
   - pwsh: |
       $repository = '${{ parameters.githubRepository }}'
       $version = 'v$${{ parameters.version }}'
+      $env:GITHUB_TOKEN = '${{ parameters.githubAccessToken }}'
 
       gh release view $version --repo $repository
 
@@ -50,8 +51,6 @@ steps:
           Exit($LASTEXITCODE)
       }
     displayName: Detect if github Release is already present
-    env:
-      GITHUB_TOKEN: ${{ parameters.githubAccessToken }}
 
   - task: GitHubRelease@1
     displayName: "Create GitHub release v${{ parameters.version }}"
