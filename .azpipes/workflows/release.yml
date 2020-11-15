@@ -43,6 +43,20 @@ stages:
               imageTags: |
                 develop
 
+      - job: ghrelease
+        displayName: github release
+        pool:
+          vmImage: $(vmImage)
+        steps:
+          - template: ../templates/github/createRelease.yml
+            parameters:
+              workingDirectory: $(System.DefaultWorkingDirectory)
+              githubRepository: ${{ variables.githubRepository }}
+              version: ${{ variables.version }}-develop
+              githubConnection: ${{ variables.githubConnection }}
+              isPreRelease: false
+              addChangeLog: true
+
   - stage: buildandpushtocrmaster
     displayName: Uploading new release to cr
     dependsOn: continuousIntegration
@@ -71,6 +85,7 @@ stages:
           - template: ../templates/github/createRelease.yml
             parameters:
               workingDirectory: $(System.DefaultWorkingDirectory)
+              githubRepository: ${{ variables.githubRepository }}
               version: ${{ variables.version }}
               githubConnection: ${{ variables.githubConnection }}
               isPreRelease: false
