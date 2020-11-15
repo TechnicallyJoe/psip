@@ -2,7 +2,11 @@ variables:
   - name: version
     value: 0.0.4
 
-  # Should be: <Repository>/<ImageName>
+  # Should be: <Organization>/<Repository> (In gh context)
+  - name: githubRepository
+    value: technicallyjoe/psip
+
+  # Should be: <Repository>/<ImageName> (In docker context)
   - name: imageName
     value: technicallyjoe/psip
 
@@ -16,5 +20,6 @@ variables:
   - name: containerRegistry
     value: technicallyjoe/psip
 
+  # Should point to a service connection created in Azure DevOps
   - name: githubConnection
     value: gh/technicallyjoe/psip
