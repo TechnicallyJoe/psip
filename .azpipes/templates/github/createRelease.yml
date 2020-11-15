@@ -32,7 +32,7 @@ steps:
       $repository = '${{ parameters.githubRepository }}'
       $version = 'v$${{ parameters.version }}'
 
-      gh auth login --with-token '${{ parameters.githubAccessToken }}'
+      '${{ parameters.githubAccessToken }}' | gh auth login --with-token
 
       gh release view $version --repo $repository
 
