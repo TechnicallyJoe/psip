@@ -15,3 +15,6 @@ variables:
   # Should point to a service connection created in Azure DevOps
   - name: containerRegistry
     value: technicallyjoe/psip
+
+  - name: githubConnection
+    value: gh-technicallyjoe/psip

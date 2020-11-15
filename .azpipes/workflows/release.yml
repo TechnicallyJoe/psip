@@ -52,7 +52,7 @@ stages:
             parameters:
               workingDirectory: $(System.DefaultWorkingDirectory)
               version: ${{ variables.version }}-preview
-              githubConnection: gh-technicallyjoe/psip
+              githubConnection: ${{ variables.githubConnection }}
               isPreRelease: true
               addChangeLog: false
 
@@ -85,6 +85,6 @@ stages:
             parameters:
               workingDirectory: $(System.DefaultWorkingDirectory)
               version: ${{ variables.version }}
-              githubConnection: gh-technicallyjoe/psip
+              githubConnection: ${{ variables.githubConnection }}
               isPreRelease: false
               addChangeLog: true
