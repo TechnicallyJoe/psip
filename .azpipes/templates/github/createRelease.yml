@@ -2,6 +2,9 @@ parameters:
   - name: workingDirectory
     type: string
 
+  - name: githubRepository
+    type: string
+
   - name: version
     type: string
 
@@ -21,6 +24,29 @@ steps:
       rootFolderOrFile: ${{ parameters.workingDirectory }}
       includeRootFolder: false
       archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.Repository.Name).zip
+
+  - pwsh: |
+      $repository = '${{ parameters.githubRepository }}'
+      $version = 'v$${{ parameters.version }}'
+
+      gh release view $version --repo $repository
+
+      if ($LASTEXITCODE -eq 0)
+      {
+          "Release detected. Setting Action to 'edit'"
+          "##vso[task.setvariable variable=ghReleaseAction]edit"
+      }
+      elseif ($LASTEXITCODE -eq 1)
+      {
+          "Release NOT detected. Setting Action to 'create'"
+          "##vso[task.setvariable variable=ghReleaseAction]create"
+      }
+      else
+      {
+          "LastExitCode was not known. LastExitCode = $LASTEXITCODE"
+          Exit($LASTEXITCODE)
+      }
+    displayName: Detect if github Release is already present
 
   - task: GitHubRelease@1
     displayName: "Create GitHub release v${{ parameters.version }}"
